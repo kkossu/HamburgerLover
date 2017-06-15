@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 71c88dfb5257941a8bc20fb02a4b89e3, type: 2}
   mSprites:
-  - name: breadBottom
+  - name: breadbottom
     x: 0
     y: 345
     width: 212
@@ -66,7 +66,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: breadTop
+  - name: breadtop
     x: 256
     y: 419
     width: 207

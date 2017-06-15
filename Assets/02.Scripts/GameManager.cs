@@ -8,15 +8,19 @@ public class GameManager : MonoBehaviour
 	[SerializeField] float leftTime = 0;
 
 	[SerializeField] UILabel timer;
+    [SerializeField] UISprite [] source;
+    [SerializeField] UISprite [] target;
 
-	bool started = false;
+    bool started = false;
+    HamburgerOrder hamburgerOrder = new HamburgerOrder();
 
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Start()
 	{
-		
-	}
+        _NewOrder();
+        _ClearTarget();
+    }
 	
 	void Update()
 	{
@@ -97,4 +101,28 @@ public class GameManager : MonoBehaviour
 		timer.text = string.Format("{0:F2} s", time);
 	}
 
+    void _NewOrder()
+    {
+        List<Ingredient> newOrder = hamburgerOrder.GetOrder();
+
+        for (int index = 0; index < source.Length; ++index)
+        {
+            if (index < newOrder.Count)
+            {
+                source[index].spriteName = newOrder[index].ToString().ToLower();
+            }
+            else
+            {
+                source[index].spriteName = "";
+            }
+        }
+    }
+
+    void _ClearTarget()
+    {
+        foreach(var entry in target)
+        {
+            entry.spriteName = "";
+        }
+    }
 }
